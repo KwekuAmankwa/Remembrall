@@ -1,5 +1,5 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"
+import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://groceries---scrimba-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -14,5 +14,6 @@ const addBtn = document.getElementById("add-button")
 
 addBtn.addEventListener("click", function(){
     let groceries = inputField.value
+    push(shoppingListInDB, groceries)
     console.log(groceries)
 })
