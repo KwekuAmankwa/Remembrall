@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://groceries---scrimba-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -21,17 +21,23 @@ addBtn.addEventListener("click", function(){
 })
 
 onValue(shoppingListInDB, function(snapshot){
-    let itemsArray = Object.entries(snapshot.val())
 
-    clearGroceryList()
+    if (snapshot.exists()){
 
-    for (let i = 0; i < itemsArray.length; i++){
+        let itemsArray = Object.entries(snapshot.val())
 
-        let currentItem = itemsArray[i]
-        let currentItemID = currentItem[0]
-        let currentItemValue = currentItem[1]
-        
-        addListItem(currentItemValue)
+        clearGroceryList()
+
+        for (let i = 0; i < itemsArray.length; i++){
+
+            let currentItem = itemsArray[i]
+            let currentItemID = currentItem[0]
+            let currentItemValue = currentItem[1]
+            
+            addListItem(currentItem)
+        }
+    }else{
+        groceryList.innerHTML = "No Items Here... Yet."
     }
 })
 
@@ -40,7 +46,20 @@ function clearInputField(){
 }
 
 function addListItem(item){
-    groceryList.innerHTML += `<li> ${item}</li>`
+    // groceryList.innerHTML += `<li> ${item}</li>`
+    let itemID = item[0]
+    let itemValue = item[1]
+
+    let newElement = document.createElement("li")
+    newElement.textContent = itemValue
+
+    newElement.addEventListener("dblclick", function(){
+        let itemLocationInDB = ref(database, `shoppingList/${itemID}`)
+
+        remove(itemLocationInDB)
+    })
+
+    groceryList.append(newElement)
 }
 
 function clearGroceryList(){
