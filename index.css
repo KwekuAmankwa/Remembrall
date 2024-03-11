@@ -6,12 +6,58 @@ html,body{
     color: #432000;
 }
 
+section {
+    display: flex;
+    max-width: 400px;
+    margin: 30px auto;
+}
+
+
+#google-sign-in{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    margin-top: 60%;
+    color: #AC485A;
+    background-color: white;
+    font-weight: bold;
+    border: 1px solid #AC485A;
+}
+
+.google-logo{
+    margin: 0;
+    width: 1.375em;
+}
+
 .container{
     display: flex;
     flex-direction: column;
-    max-width: 400px;
+    width: 100%;
     margin: 30px auto;
     padding: 10px;
+}
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.icon-btn{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 15px;
+    margin: 0;
+}
+.icon-btn:hover{
+    background-color: white;
+}
+
+.icon-btn img{
+    width: 20px;
 }
 
 img{
