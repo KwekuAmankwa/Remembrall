@@ -1,6 +1,7 @@
 {
-    "name":"Grocery List",
-    "short_name":"Grocery List",
+    "name":"Remembrall",
+    "short_name":"Erinnern",
+    "description": "A quick way to remember stuff.",
     "icons":
         [
             {"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},

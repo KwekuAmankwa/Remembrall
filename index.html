@@ -14,13 +14,38 @@
     <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
-    <div class="container">
-        <img src="Assets/trolley.png" alt="goma pushing peach in peach-trolley">
-        <input type="text" placeholder="Item" id="input-field">
-        <button id="add-button">Add to Cart</button>
-        <ul id="shopping-list">
-        </ul>
-    </div>
+
+    <section class="logged-out-view" id="logged-out-view">
+        <div class="container">
+            <p id="user-alerts"></p>
+            <img src="Assets/trolley.png" alt="goma pushing peach in peach-trolley">
+            <input type="email" placeholder="Email" id="email-field">
+            <input type="password" placeholder="Password" id="password-field">
+            <button id="email-sign-in">Sign In</button>
+            <button id="create-account">Create Account</button>
+            <button id="google-sign-in">
+                <img src="./Assets/google.png" alt="" class="google-logo">
+                Sign in with Google
+            </button>
+        </div>
+
+    </section>
+
+    <section class="logged-in-view" id="logged-in-view">
+        <div class="container">
+            <nav>
+                <button id="sign-out-btn" class="icon-btn">
+                    <img src="Assets/icon-sign-out.svg" class="icon-img-btn">
+                </button>
+            </nav>
+            <p id="item-alerts"></p>
+            <img src="Assets/trolley.png" alt="goma pushing peach in peach-trolley">
+            <input type="text" placeholder="Item" id="input-field">
+            <button id="add-button">Remember</button>
+            <ul id="shopping-list">
+            </ul>
+        </div>
+    </section>
     
     <script type="module" src="index.js"></script>
 </body>
