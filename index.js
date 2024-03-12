@@ -185,6 +185,8 @@ async function renderItems() {
     const q = query(collection(db, collectionName), where("uid", "==", user.uid))
     onSnapshot(q, (querySnapshot) => {
         clearGroceryList()
+        const alert = ""
+        itemAlertMessage(alert)
         querySnapshot.forEach((doc) => {
             createListContent(doc)
         })
@@ -197,11 +199,17 @@ async function renderItems() {
 
 function userAlertMessage(alert){
     userAlertsEl.textContent = alert
+    setTimeout(() => {
+        userAlertsEl.textContent = ""
+    }, 10000);
     return userAlertsEl
 }
 
 function itemAlertMessage(alert) {
     itemAlertsEl.textContent = alert
+    setTimeout(() => {
+        itemAlertsEl.textContent = ""
+    }, 10000);
     return userAlertsEl
 }
 
